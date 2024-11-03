@@ -1,6 +1,7 @@
 package com.giyeon.hellospring;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -8,16 +9,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.stream.Collectors;
 
-public class WebApiPaymentService extends PaymentService{
-    @Override
-    public BigDecimal getVipExchangeRate(String currency) throws IOException {
-        BigDecimal krwExchangeRate = getKRWExchangeRate(currency);
-        BigDecimal vipExchangeRate = krwExchangeRate.subtract(BigDecimal.valueOf(0.01));
-        return vipExchangeRate;
-    }
+public class WebApiExchangeRate implements ExchangeRate{
 
     @Override
-    public BigDecimal getKRWExchangeRate(String currency) throws IOException {
+    public BigDecimal getExchangeRate(String currency) throws IOException {
         //환율 가져오기
         URL url = new URL("https://open.er-api.com/v6/latest/" + currency);
         //연결 설정
