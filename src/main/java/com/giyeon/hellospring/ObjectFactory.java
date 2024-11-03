@@ -9,13 +9,19 @@ import org.springframework.context.annotation.Configuration;
 public class ObjectFactory {
 
     @Bean
-    public PaymentService returnExchangeRateObject(){
-        return new PaymentService(getExchangeRate());
+    public CachedExRate getCachedExRate(){
+        return new CachedExRate(getWebApiExchangeRate());
     }
 
     @Bean
-    public ExchangeRate getExchangeRate() {
+    public WebApiExchangeRate getWebApiExchangeRate(){
         return new WebApiExchangeRate();
     }
+
+    @Bean
+    public PaymentService getPaymentService() {
+        return new PaymentService(getCachedExRate());
+    }
+
 
 }
