@@ -1,4 +1,6 @@
-package com.giyeon.hellospring;
+package com.giyeon.hellospring.exchangeRateLayer;
+
+import com.giyeon.hellospring.paymentServiceLayer.ExchangeRate;
 
 import java.io.IOException;
 import java.math.BigDecimal;

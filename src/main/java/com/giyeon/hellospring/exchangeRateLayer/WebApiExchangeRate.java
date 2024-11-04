@@ -1,7 +1,7 @@
-package com.giyeon.hellospring;
+package com.giyeon.hellospring.exchangeRateLayer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Component;
+import com.giyeon.hellospring.paymentServiceLayer.ExchangeRate;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.stream.Collectors;
 
-public class WebApiExchangeRate implements ExchangeRate{
+public class WebApiExchangeRate implements ExchangeRate {
 
     @Override
     public BigDecimal getExchangeRate(String currency) throws IOException {

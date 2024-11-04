@@ -1,8 +1,9 @@
 package com.giyeon.hellospring;
 
+import com.giyeon.hellospring.paymentServiceLayer.Payment;
+import com.giyeon.hellospring.paymentServiceLayer.PaymentService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 import java.math.BigDecimal;

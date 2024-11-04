@@ -1,4 +1,4 @@
-package com.giyeon.hellospring;
+package com.giyeon.hellospring.exchangeRateLayer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

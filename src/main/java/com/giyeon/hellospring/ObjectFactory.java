@@ -1,5 +1,8 @@
 package com.giyeon.hellospring;
 
+import com.giyeon.hellospring.exchangeRateLayer.CachedExRate;
+import com.giyeon.hellospring.exchangeRateLayer.WebApiExchangeRate;
+import com.giyeon.hellospring.paymentServiceLayer.PaymentService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
