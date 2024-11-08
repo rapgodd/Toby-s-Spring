@@ -45,6 +45,10 @@ public class Payment {
         return dueDate;
     }
 
+    public BigDecimal getConvertedAmount() {
+        return this.foreignCurrencyAmount.multiply(this.exchangeRate);
+    }
+
     @Override
     public String toString() {
         return "Payment{" +

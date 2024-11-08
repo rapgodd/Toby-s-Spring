@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 public class PaymentService {
     private final ExchangeRate exchangeRate;
 
+    public ExchangeRate getExchangeRate() {
+        return exchangeRate;
+    }
+
     public PaymentService(ExchangeRate exchangeRate) {
         this.exchangeRate = exchangeRate;
     }
