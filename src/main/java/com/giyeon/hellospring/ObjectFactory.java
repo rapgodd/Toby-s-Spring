@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.Clock;
+
 @Configuration
 @ComponentScan
 public class ObjectFactory {
@@ -22,8 +24,13 @@ public class ObjectFactory {
     }
 
     @Bean
+    public Clock getClock(){
+        return Clock.systemDefaultZone();
+    }
+
+    @Bean
     public PaymentService getPaymentService() {
-        return new PaymentService(getCachedExRate());
+        return new PaymentService(getCachedExRate(), getClock());
     }
 
 

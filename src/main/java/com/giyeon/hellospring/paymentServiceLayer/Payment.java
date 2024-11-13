@@ -1,6 +1,8 @@
 package com.giyeon.hellospring.paymentServiceLayer;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.Clock;
 import java.time.LocalDateTime;
 
 public class Payment {
@@ -19,6 +21,12 @@ public class Payment {
         this.exchangeRate = exchangeRate;
         this.koreanWonCurrencyAmount = koreanWonCurrencyAmount;
         this.dueDate = dueDate;
+    }
+
+    public static Payment getPaymentByUserInputCurrency(Long orderId, String currency, BigDecimal foreignCurrencyAmount, Clock clock, ExchangeRate exchangeRate) throws IOException {
+        BigDecimal wonExchangeRate = exchangeRate.getExchangeRate(currency);
+        BigDecimal koreanWonPrice = foreignCurrencyAmount.multiply(wonExchangeRate);
+        return new Payment(orderId, currency, foreignCurrencyAmount, wonExchangeRate, koreanWonPrice, LocalDateTime.now(clock).plusMinutes(30));
     }
 
     public Long getOrderId() {
